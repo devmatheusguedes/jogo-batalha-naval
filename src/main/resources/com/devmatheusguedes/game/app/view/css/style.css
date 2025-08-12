@@ -1,0 +1,38 @@
+.root {
+
+    -fx-background-image: url("@com/devmatheusguedes/game/app/images/menu-pricipal.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+.pane-fundo {
+        -fx-background-image: url("src/main/resources/com/devmatheusguedes/game/app/images/menu-pricipal.png");
+        -fx-background-size: cover;
+        -fx-background-repeat: no-repeat;
+        -fx-background-position: center;
+}
+.titulo-jogo {
+    -fx-font-size: 48px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weigth: bold;
+    -fx-alignment: center;
+    -fx-effect: dropshandow(gaussian, black, 5, 0.5, 2, 2);
+}
+
+.botao-menu {
+-fx-background-color: #3498db;
+-fx-text-fill: white;
+-fx-font-size: 18px;
+-fx-font-weigth: bold;
+-fx-background-radius: 10;
+-fx-cursor: hand;
+-fx-pref-width: 200;
+-fx-pref-heigth: 40;
+-fx-effect: dropshandow(gaussian, black, 3, 0.3, 1, 1);
+}
+
+.botao-menu:hover {
+-fx-background-color: #2980b9;
+-fx-scale-x: 1.03;
+-fx-scale-y 1.03;
+}
