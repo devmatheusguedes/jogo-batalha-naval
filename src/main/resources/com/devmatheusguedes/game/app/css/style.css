@@ -1,6 +1,6 @@
 .root {
 
-    -fx-background-image: url("@com/devmatheusguedes/game/app/images/menu-pricipal.png");
+    -fx-background-image: url("/com/devmatheusguedes/game/app/images/menu-pricipal.png");
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
@@ -16,7 +16,7 @@
     -fx-text-fill: #ffffff;
     -fx-font-weigth: bold;
     -fx-alignment: center;
-    -fx-effect: dropshandow(gaussian, black, 5, 0.5, 2, 2);
+    -fx-effect: dropshadow(gaussian, black, 5, 0.5, 2, 2);
 }
 
 .botao-menu {
@@ -28,7 +28,7 @@
 -fx-cursor: hand;
 -fx-pref-width: 200;
 -fx-pref-heigth: 40;
--fx-effect: dropshandow(gaussian, black, 3, 0.3, 1, 1);
+-fx-effect: dropshadow(gaussian, black, 3, 0.3, 1, 1);
 }
 
 .botao-menu:hover {
