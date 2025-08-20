@@ -1,4 +1,4 @@
-package com.devmatheusguedes.game.controller;
+package com.devmatheusguedes.game.app.controller;
 
 
 import com.devmatheusguedes.game.GameLogic.GameLogic;

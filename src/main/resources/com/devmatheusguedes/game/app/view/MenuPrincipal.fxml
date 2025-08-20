@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="panePrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #001f3f, #0074D9); -fx-background-image: -fx-background-image: url(&quot;src/main/resources/com/devmatheusguedes/game/app/images/menu-pricipal.png&quot;);        -fx-background-size: cover;        -fx-background-repeat: no-repeat;        -fx-background-position: center;;" stylesheets="@view/css/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.devmatheusguedes.game.app.controller.MenuPrincipalController">
+<AnchorPane fx:id="panePrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #001f3f, #0074D9); -fx-background-image: -fx-background-image: url(&quot;src/main/resources/com/devmatheusguedes/game/app/images/menu-pricipal.png&quot;);        -fx-background-size: cover;        -fx-background-repeat: no-repeat;        -fx-background-position: center;;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.devmatheusguedes.game.app.controller.MenuPrincipalController">
    <children>
       <Label layoutX="117.0" layoutY="33.0" style="-fx-text-fill: white; -fx-effect: dropshadow(gaussian, black, 5, 0.5, 2, 2);;" styleClass="titulo-jogo" text="BATALHA NAVAL" AnchorPane.topAnchor="33.0">
          <font>

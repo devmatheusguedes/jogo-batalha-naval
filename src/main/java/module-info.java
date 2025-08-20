@@ -4,6 +4,8 @@ module com.devmatheusguedes.game.app {
 
     requires org.controlsfx.controls;
     requires java.desktop;
+    requires javafx.graphics;
+    requires javafx.base;
 
     opens com.devmatheusguedes.game.app to javafx.fxml;
     exports com.devmatheusguedes.game.app;
