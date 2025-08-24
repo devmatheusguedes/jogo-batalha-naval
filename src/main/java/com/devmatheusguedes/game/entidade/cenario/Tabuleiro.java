@@ -1,7 +1,6 @@
 package com.devmatheusguedes.game.entidade.cenario;
 
-import com.devmatheusguedes.game.entidade.barco.Barco;
-import com.devmatheusguedes.game.entidade.barco.Cruzador;
+import com.devmatheusguedes.game.entidade.barco.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +13,10 @@ public class Tabuleiro {
     public Tabuleiro(){
         this.barcos = new ArrayList<>(){};
         this.barcos.add(0, new Cruzador(this));
-//        this.barcos.add(1, new PortaAvioes(this));
-//        this.barcos.add(2, new Destroier(this));
-//        this.barcos.add(3, new Encouracado(this));
-//        this.barcos.add(4, new Submarino(this));
+        this.barcos.add(1, new PortaAvioes(this));
+        this.barcos.add(2, new Destroier(this));
+        this.barcos.add(3, new Encouracado(this));
+        this.barcos.add(4, new Submarino(this));
         this.posicao = new int[tamanhoDoTabuleiro.getX()][tamanhoDoTabuleiro.getY()];
 
     }

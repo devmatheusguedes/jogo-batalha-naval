@@ -10,7 +10,6 @@ public class Barco {
     private Missil missil;
     private TipoBarco tipoBarco;
     private int[][] coordenadas;
-    private ImageIcon imagemBarco;
 
     public Barco(TipoBarco tipoBarco, Tabuleiro tabuleiro){
         this.tipoBarco = tipoBarco;
@@ -44,13 +43,6 @@ public class Barco {
         this.coordenadas = coordenadas;
     }
 
-    public ImageIcon getImagemBarco() {
-        return imagemBarco;
-    }
-
-    public void setImagemBarco(ImageIcon imagemBarco) {
-        this.imagemBarco = imagemBarco;
-    }
 
     @Override
     public String toString() {
@@ -58,7 +50,6 @@ public class Barco {
                 "missil=" + missil +
                 ", tipoBarco=" + tipoBarco +
                 ", coordenadas=" + Arrays.toString(coordenadas) +
-                ", imagemBarco=" + imagemBarco +
                 '}';
     }
 }
