@@ -8,7 +8,6 @@ public class PortaAvioes extends Barco{
 
     public PortaAvioes(Tabuleiro tabuleiro) {
         super(TipoBarco.PORTA_AVIOES, tabuleiro);
-        this.setImagemBarco(new ImageIcon());
     }
 
 

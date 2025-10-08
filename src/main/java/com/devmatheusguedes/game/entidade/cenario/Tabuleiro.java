@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tabuleiro {
-    private int[][] posicao;
+    private static int[][] posicao;
     private List<Barco> barcos;
     private DimensaoDeTabuleiro tamanhoDoTabuleiro = DimensaoDeTabuleiro.NORMAL; // padrão
 

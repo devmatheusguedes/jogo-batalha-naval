@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,23 +26,12 @@ public class MenuPrincipalController {
 
     @FXML
     public void jogar(ActionEvent actionEvent) throws IOException {
-        // 1) Cria o FXMLLoader
-        FXMLLoader loader = new FXMLLoader();
-        // 2) Define explicitamente a localização do FXML
-        loader.setLocation(
-                getClass().getResource(
-                        "/com/devmatheusguedes/game/app/view/PosicionarBarcos.fxml"
-                )
-        );
-        // 3) Executa o load() e recebe o Parent
-        Parent root = loader.load();
+        String fxml = "/com/devmatheusguedes/game/app/view/PosicionarBarcos.fxml";
+        ScrenManager.loadScreen(fxml, 800, 500);
 
-        // 4) Troca a cena atual pela nova
-        Stage stage = (Stage) ((Node) actionEvent.getSource())
-                .getScene()
-                .getWindow();
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+        PosicionarBarcosController posicionarBarcosController = ScrenManager.getFxmlLoader().getController();
+        posicionarBarcosController.setstage(ScrenManager.getMainStage());
+        posicionarBarcosController.carergarTela(ScrenManager.getRoot());
     }
 
 

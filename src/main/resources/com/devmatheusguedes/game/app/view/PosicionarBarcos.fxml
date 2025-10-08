@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.devmatheusguedes.game.app.controller.PosicionarBarcosController">
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane fx:id="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.devmatheusguedes.game.app.controller.PosicionarBarcosController">
 
     <!-- Lateral com os barcos -->
     <left>
@@ -29,6 +28,13 @@
             <Button fx:id="btnPosicionarAleatorio" text="Posicionar Aleatoriamente" />
             <Button fx:id="btnCancelar" text="Cancelar" />
             <Button fx:id="btnComecar" text="Começar" />
+            <Label>Tamanho do Tabuleiro: </Label>
+            <fx:define>
+                <ToggleGroup fx:id="grupo"/>
+            </fx:define>
+            <RadioButton fx:id="normal" text="10" toggleGroup="$grupo"/>
+            <RadioButton fx:id="medio" text="20" toggleGroup="$grupo"/>
+            <RadioButton fx:id="grande" text="30" toggleGroup="$grupo"/>
         </HBox>
     </bottom>
 </BorderPane>

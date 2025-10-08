@@ -1,14 +1,33 @@
 package com.devmatheusguedes.game.app.controller;
 
+import com.devmatheusguedes.game.entidade.Player;
+import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.geometry.Rectangle2D;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class PosicionarBarcosController {
+
+    public BorderPane root;
+    public RadioButton normal;
+    public RadioButton medio;
+    public RadioButton grande;
+    public ToggleGroup grupo;
+    private Player player;
+    private Stage stage;
 
     @FXML
     private GridPane gridTabuleiro;
@@ -19,14 +38,20 @@ public class PosicionarBarcosController {
     @FXML
     private Button btnCancelar, btnComecar, btnPosicionarAleatorio;
 
-    private final int tamanhoTabuleiro = 10; // Pode ser parametrizado
+    @FXML
+    private static  int tamanhoTabuleiro = 10; // Pode ser parametrizado
     private boolean orientacaoHorizontal = true;
+
+    public void setstage(Stage stage) {
+        this.stage = stage;
+    }
 
     @FXML
     public void initialize() {
         montarTabuleiro(tamanhoTabuleiro);
         adicionarBarcos();
         configurarBotoes();
+
     }
 
     private void montarTabuleiro(int tamanho) {
@@ -35,14 +60,23 @@ public class PosicionarBarcosController {
         gridTabuleiro.getRowConstraints().clear();
 
         for (int i = 0; i < tamanho; i++) {
-            gridTabuleiro.getColumnConstraints().add(new ColumnConstraints(30));
-            gridTabuleiro.getRowConstraints().add(new RowConstraints(30));
+            if (tamanho <= 10) {
+                gridTabuleiro.getColumnConstraints().add(new ColumnConstraints(30));
+                gridTabuleiro.getRowConstraints().add(new RowConstraints(30));
+            }else {
+                gridTabuleiro.getColumnConstraints().add(new ColumnConstraints(20));
+                gridTabuleiro.getRowConstraints().add(new RowConstraints(20));
+            }
         }
 
         for (int y = 0; y < tamanho; y++) {
             for (int x = 0; x < tamanho; x++) {
                 StackPane celula = new StackPane();
-                celula.setPrefSize(30, 30);
+                if (tamanho <= 10) {
+                    celula.setPrefSize(30, 30);
+                }else {
+                    celula.setPrefSize(20, 20);
+                }
                 celula.setStyle("-fx-border-color: black; -fx-background-color: lightblue;");
 
                 final int finalX = x;
@@ -139,8 +173,23 @@ public class PosicionarBarcosController {
     }
 
     private void configurarBotoes() {
+        grupo.selectedToggleProperty().addListener(
+                new ChangeListener<Toggle>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
+                        if (grupo.getSelectedToggle() != null){
+                            String selected = ((RadioButton) grupo.getSelectedToggle()).getText();
+                            tamanhoTabuleiro = Integer.parseInt(selected);
+                            montarTabuleiro(tamanhoTabuleiro);
+                            if (tamanhoTabuleiro == 30){
+                                root.setPrefSize(800, 700);
+                            }
+                        }
+                    }
+                }
+        );
         btnCancelar.setOnAction(e -> {
-            System.out.println("Cancelado.");
+            root.setCenter(new Label("OK"));
             // Fechar a janela ou limpar estado
         });
 
@@ -153,6 +202,13 @@ public class PosicionarBarcosController {
             System.out.println("Começando o jogo!");
             // Validar se todos os barcos foram posicionados
         });
+    }
+
+    public void carergarTela(Parent root) throws IOException {
+        Scene scene = new Scene(root, 800, 500);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
     }
 }
 
