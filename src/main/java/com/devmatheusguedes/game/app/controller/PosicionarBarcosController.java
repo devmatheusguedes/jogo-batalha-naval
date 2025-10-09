@@ -23,18 +23,23 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class PosicionarBarcosController {
-
+    @FXML
     public BorderPane root;
+    @FXML
     public RadioButton normal;
+    @FXML
     public RadioButton medio;
+    @FXML
     public RadioButton grande;
+    @FXML
     public ToggleGroup grupo;
     private static Player player;
-
     @FXML
-    private GridPane tabuleiro;
+    public GridPane tabuleiro;
+
 
     @FXML
     private VBox boxBarcos;
@@ -50,9 +55,10 @@ public class PosicionarBarcosController {
     @FXML
     public void initialize() {
         player = new Player("matheus");
-        montarTabuleiro(tamanhoTabuleiro);
         configurarBotoes();
+        montarTabuleiro(tamanhoTabuleiro);
         addImageBarcosLeftPane();
+        estiloDaCena();
 
     }
     public void iniciar(){
@@ -60,16 +66,36 @@ public class PosicionarBarcosController {
     }
 
     private void montarTabuleiro(int tamanho) {
-        tabuleiro = new GridPane();
-        int[][] tamTab = player.getMeuTabulerio().getPosicao();
-        int x = tamTab.length;
-        int y = tamTab.length;
+        tabuleiro.getChildren().clear();
+        tabuleiro.getColumnConstraints().clear();
+        tabuleiro.getRowConstraints().clear();
+        for (int i = 0; i < tamanho; i++){
+            ColumnConstraints constraints = new ColumnConstraints();
+            constraints.setPrefWidth(30);
+            tabuleiro.getColumnConstraints().add(constraints);
+        }
+
+        for (int j = 0; j<tamanho; j++){
+            RowConstraints rowConstraints = new RowConstraints();
+            rowConstraints.setPrefHeight(30);
+            tabuleiro.getRowConstraints().add(rowConstraints);
+        }
         // passo 1: fazer o tabuleiro de acordo com o tamanho especificado
         tabuleiro.getRowConstraints().clear();
         tabuleiro.getColumnConstraints().clear();
-        for (int i = 0; i <= x; i++){
-            for (int j = 0; j <= y; j++){
-
+        for (int i = 0; i < tamanho; i++){
+            for (int j = 0; j < tamanho; j++){
+                StackPane quadrado = new StackPane();
+                if (tamanho <= 10){
+                    quadrado.setPrefSize(30, 30);
+                }else {
+                    quadrado.setPrefSize(30, 30);
+                }
+                GridPane.setRowIndex(quadrado, i);
+                GridPane.setColumnIndex(quadrado, j);
+                quadrado.setStyle(" -fx-background-color: #adb5bd;");
+                carregarEstiloDeElemento(quadrado);
+                tabuleiro.getChildren().add(quadrado);
             }
         }
         // passo2: adcionar os barcos a barra lateral esquerda
@@ -96,6 +122,18 @@ public class PosicionarBarcosController {
         }
     }
 
+    public void estiloDaCena(){
+        String css = Objects.requireNonNull(getClass().getResource("/com/devmatheusguedes/game/app/css/batalha_naval.css")).toExternalForm();
+        tabuleiro.getStylesheets().add(css);
+        tabuleiro.getStyleClass().add("tabuleiro");
+    }
+
+    private void carregarEstiloDeElemento(StackPane node){
+        String css =(Objects.requireNonNull(getClass().getResource("/com/devmatheusguedes/game/app/css/batalha_naval.css")).toExternalForm());
+        node.getStylesheets().add(css);
+        node.getStyleClass().add("quadrado");
+    }
+
 
     private void configurarBotoes() {
         grupo.selectedToggleProperty().addListener(
@@ -105,10 +143,10 @@ public class PosicionarBarcosController {
                         if (grupo.getSelectedToggle() != null){
                             String selected = ((RadioButton) grupo.getSelectedToggle()).getText();
                             tamanhoTabuleiro = Integer.parseInt(selected);
-                            montarTabuleiro(tamanhoTabuleiro);
                             if (tamanhoTabuleiro == 30){
                                 ScrenManager.getMainStage().setMaximized(true);
                             }
+                            montarTabuleiro(tamanhoTabuleiro);
                         }
                     }
                 }

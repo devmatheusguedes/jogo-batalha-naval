@@ -1,0 +1,62 @@
+/* ======== TABULEIRO ======== */
+.tabuleiro {
+    -fx-background-color: linear-gradient(to bottom, #1a2a6c, #1e3c72, #2a5298);
+    -fx-border-color: #0a1931;
+    -fx-border-width: 3px;
+    -fx-padding: 8;
+    -fx-hgap: 2;
+    -fx-vgap: 2;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0.2, 0, 2);
+}
+
+/* ======== QUADRADOS NORMAIS ======== */
+.quadrado {
+    -fx-background-color: #1e81b0;  /* azul do mar */
+    -fx-border-color: #0d1b2a;
+    -fx-border-width: 1;
+    -fx-background-radius: 3;
+    -fx-cursor: hand;
+    -fx-transition: 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.quadrado:hover {
+    -fx-background-color: #4cc9f0;
+}
+
+/* ======== ESTADOS DO JOGO ======== */
+.navio {
+    -fx-background-color: #2d6a4f; /* verde escuro */
+}
+
+.tiro {
+    -fx-background-color: #ced4da; /* cinza claro */
+}
+
+.acerto {
+    -fx-background-color: #e63946; /* vermelho */
+}
+
+.agua {
+    -fx-background-color: #1e81b0; /* azul padrão */
+}
+
+.erro {
+    -fx-background-color: #adb5bd; /* cinza médio */
+}
+
+/* ======== OPICIONAL: ANIMAÇÃO DE ACERTO ======== */
+@keyframes acertoPulse {
+    0% { -fx-background-color: #e63946; }
+    50% { -fx-background-color: #ff6b6b; }
+    100% { -fx-background-color: #e63946; }
+}
+
+.acerto {
+    -fx-background-color: #e63946;
+    -fx-border-color: #ffb703;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.6), 10, 0.3, 0, 0);
+    -fx-animation: acertoPulse 0.8s ease-in-out infinite;
+}

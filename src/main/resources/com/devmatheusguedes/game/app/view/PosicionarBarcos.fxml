@@ -18,7 +18,7 @@
     <!-- Centro com o tabuleiro -->
     <center>
         <ScrollPane fitToWidth="true" fitToHeight="true">
-            <GridPane fx:id="gridTabuleiro" alignment="CENTER" />
+            <GridPane fx:id="tabuleiro" alignment="CENTER" />
         </ScrollPane>
     </center>
 

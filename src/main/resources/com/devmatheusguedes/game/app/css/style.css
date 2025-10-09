@@ -54,6 +54,15 @@
     -fx-fit-width: 6em;
     -fx-fit-heigth: 3em;
 }
+.tabuleiro {
+    -fx-background-color: linear-gradient(to bottom, #1e3c72, #2a5298);
+    -fx-border-color: #0a1931;
+    -fx-border-width: 3px;
+}
+
+.cor__grid__pane{
+    -fx-background-color: #3498db;
+}
 .botao-menu:hover {
 -fx-background-color: #2980b9;
 -fx-scale-x: 1.03;
