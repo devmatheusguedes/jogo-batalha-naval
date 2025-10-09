@@ -17,7 +17,7 @@ public class Tabuleiro {
         this.barcos.add(2, new Destroier(this));
         this.barcos.add(3, new Encouracado(this));
         this.barcos.add(4, new Submarino(this));
-        this.posicao = new int[tamanhoDoTabuleiro.getX()][tamanhoDoTabuleiro.getY()];
+        posicao = new int[tamanhoDoTabuleiro.getX()][tamanhoDoTabuleiro.getY()];
 
     }
 

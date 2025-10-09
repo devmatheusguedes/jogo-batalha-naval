@@ -4,6 +4,7 @@
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
+    -fx-font-size: 16px;
 }
 .pane-fundo {
         background-image: url("/com/devmatheusguedes/game/app/images/menu-pricipal.png");
@@ -49,7 +50,10 @@
 -fx-pref-heigth: 40;
 -fx-effect: dropshadow(gaussian, black, 3, 0.3, 1, 1);
 }
-
+.image__barcos__left{
+    -fx-fit-width: 6em;
+    -fx-fit-heigth: 3em;
+}
 .botao-menu:hover {
 -fx-background-color: #2980b9;
 -fx-scale-x: 1.03;

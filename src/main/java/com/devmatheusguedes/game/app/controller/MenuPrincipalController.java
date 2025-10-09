@@ -29,9 +29,6 @@ public class MenuPrincipalController {
         String fxml = "/com/devmatheusguedes/game/app/view/PosicionarBarcos.fxml";
         ScrenManager.loadScreen(fxml, 800, 500);
 
-        PosicionarBarcosController posicionarBarcosController = ScrenManager.getFxmlLoader().getController();
-        posicionarBarcosController.setstage(ScrenManager.getMainStage());
-        posicionarBarcosController.carergarTela(ScrenManager.getRoot());
     }
 
 

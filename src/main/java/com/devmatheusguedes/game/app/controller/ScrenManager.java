@@ -16,6 +16,20 @@ public class ScrenManager {
     private static FXMLLoader fxmlLoader;
     private static Parent root;
 
+
+
+    public static void loadScreen(String fxml, int width, int height){
+        try {
+            fxmlLoader = new FXMLLoader(ScrenManager.class.getResource(fxml));
+            root = fxmlLoader.load();
+
+            mainStage.setScene(new Scene(root, width, height));
+            mainStage.show();
+            mainStage.centerOnScreen();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
     public static Parent getRoot() {
         return root;
     }
@@ -39,18 +53,5 @@ public class ScrenManager {
 
     public  static void setMainStage(Stage stage){
         mainStage = stage;
-    }
-
-    public static void loadScreen(String fxml, int width, int height){
-        try {
-            fxmlLoader = new FXMLLoader(ScrenManager.class.getResource(fxml));
-            root = fxmlLoader.load();
-
-            mainStage.setScene(new Scene(root, width, height));
-            mainStage.show();
-            mainStage.centerOnScreen();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
     }
 }
