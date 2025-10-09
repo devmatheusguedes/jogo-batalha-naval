@@ -34,7 +34,7 @@
             </fx:define>
             <RadioButton fx:id="normal" text="10" toggleGroup="$grupo"/>
             <RadioButton fx:id="medio" text="20" toggleGroup="$grupo"/>
-            <RadioButton fx:id="grande" text="30" toggleGroup="$grupo"/>
+            <RadioButton fx:id="grande" text="25" toggleGroup="$grupo"/>
         </HBox>
     </bottom>
 </BorderPane>

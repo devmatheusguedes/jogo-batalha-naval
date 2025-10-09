@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public class ScrenManager {
     private static Stage mainStage;
+    public static final String MAIN_FXML = "/com/devmatheusguedes/game/app/view/MenuPrincipal.fxml";
+    public static final String POSICIONAR_BARCOS_FXML = "/com/devmatheusguedes/game/app/view/PosicionarBarcos.fxml";
     private static FXMLLoader fxmlLoader;
     private static Parent root;
 
@@ -22,10 +24,22 @@ public class ScrenManager {
         try {
             fxmlLoader = new FXMLLoader(ScrenManager.class.getResource(fxml));
             root = fxmlLoader.load();
-
             mainStage.setScene(new Scene(root, width, height));
             mainStage.show();
             mainStage.centerOnScreen();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadScreen(String fxml){
+        try {
+            fxmlLoader = new FXMLLoader(ScrenManager.class.getResource(fxml));
+            root = fxmlLoader.load();
+            mainStage.setScene(new Scene(root));
+            mainStage.show();
+            mainStage.centerOnScreen();
+            mainStage.setMaximized(true);
         }catch (IOException e){
             e.printStackTrace();
         }

@@ -27,7 +27,7 @@ public class MenuPrincipalController {
     @FXML
     public void jogar(ActionEvent actionEvent) throws IOException {
         String fxml = "/com/devmatheusguedes/game/app/view/PosicionarBarcos.fxml";
-        ScrenManager.loadScreen(fxml, 800, 500);
+        ScrenManager.loadScreen(fxml);
 
     }
 
